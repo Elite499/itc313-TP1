@@ -10,15 +10,15 @@ Emprunt::Emprunt(string isbn):m_isbn(isbn),m_status(false)
 
 
 
-void Emprunt::emprunterLivre(string isbn,Lecteur lecteur)
+bool Emprunt::emprunterLivre(string isbn)
 {
     if (m_status)
     {
-        cout << "Le livre est deja emprunte" << endl;
+        return false;
     }
     else
     {
-        lecteur.addIsbn(isbn);
+        return true;
     }
 }
 

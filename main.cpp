@@ -3,14 +3,46 @@
 #include "auteur.h"
 #include "lecteur.h"
 #include "emprunt.h"
+#include "library.h"
 using namespace std;
 
 int main()
 {
-    Livre book("Le c++ pour les nuls","M'bong","Nicolas",1, "Francais","007");
-    book.afficherLivre();
-    Emprunt FDP("007");
-    Lecteur Ahmed("Sguiar","Ahmed",001);
-    FDP.emprunterLivre("007",Ahmed);
-    Ahmed.afficherIsbns();
+    int x;
+    cout << "Bienvenue dans la bibliotheque!" << endl;
+    cout << endl;
+    cout << "Choisissez une action: " << endl;
+    cout << "1: Ajouter un livre        2: Ajouter un lecteur" << endl;
+    cout << "3: Still developing        4: Still developing" << endl;
+    cin >>  x;
+    Library biblio;
+
+    switch(x)
+    {
+    case 1:
+        biblio.addLivre();
+        break;
+    case 2:
+        biblio.addLecteur();
+        break;
+    case 3:
+        cout << "Still developing" << endl;
+        break;
+    case 4:
+        cout << "Still developing" << endl;
+        break;
+    }
+
+    /*Emprunt cpp("007");
+    Lecteur Raif("Sguiar","Raif",001);
+    if(cpp.emprunterLivre("007"))
+    {
+        Raif.addIsbn("007");
+    }
+    else
+    {
+        cout << "Le livre est deja emprunte" << endl;
+    }
+    Raif.afficherIsbns();
+    */
 }

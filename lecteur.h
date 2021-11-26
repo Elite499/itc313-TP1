@@ -18,7 +18,7 @@ protected:
     int m_idLecteur;
     std::string m_nom;
     std::string m_prenom;
-    std::vector<std::string> m_isbns;
+    std::vector<std::string> m_isbnsLecteur;
 };
 
 #endif // LECTEUR_H_INCLUDED
