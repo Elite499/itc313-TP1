@@ -9,7 +9,7 @@ class Emprunt
 {
 public:
     Emprunt(std::string isbn);
-    void emprunterLivre(std::string isbn,Lecteur lecteur);
+    bool emprunterLivre(std::string isbn);
 
 protected:
     std::string m_isbn;
