@@ -9,10 +9,10 @@ Livre::Livre(string titre, string nom, string prenom,int id, string langue, stri
 
 }
 
-Livre::Livre()
+/*Livre::Livre()
 {
 
-}
+}*/
 
 
 void Livre::afficherLivre()
@@ -24,7 +24,7 @@ void Livre::afficherLivre()
 
 void Livre::afficherTitre()
 {
-    cout << m_titre << endl;
+    cout << m_titre << " ";
     cout << endl;
 }
 

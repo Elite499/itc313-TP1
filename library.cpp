@@ -57,7 +57,11 @@ void Library::addLivre()
     livreEstPresent(a);
 }
 
-
+void Library::addLivre(string titre, string nom, string prenom, int id, string langue, string isbn)
+{
+    Livre a(titre, nom,prenom,id,langue,isbn);
+    m_livres.push_back(a);
+}
 
 bool Library::livreEstPresent(Livre const& x)
 {
@@ -101,8 +105,15 @@ void Library::addLecteur()
     cin >> idLecteur;
 
     Lecteur personne(string nom,string prenom,int idLecteur);
-    */Lecteur personne("M'BONG","Nicolas",001);
+    */Lecteur personne("EL SAYED","Raif",1);
     lecteurEstPresent(personne);
+
+}
+
+void Library::addLecteur(string nom, string prenom, int idLecteur)
+{
+    Lecteur personne(nom,prenom,idLecteur);
+    m_lecteurs.push_back(personne);
 
 }
 
@@ -130,7 +141,7 @@ void Library::afficherLecteurs()
 {
     for(int i=0;i<m_lecteurs.size();i++)
     {
-        cout<<m_lecteurs[i] << "/";
+        cout<<m_lecteurs[i] << " ";
     }
     cout << endl;
 }
@@ -157,6 +168,12 @@ void Library::addAuteur()
 
 }
 
+void Library::addAuteur(string nom, string prenom, int id)
+{
+    Auteur auteur(nom,prenom,id);
+    m_auteurs.push_back(auteur);
+}
+
 
 bool Library::auteurEstPresent(Auteur const& x)
 {
@@ -181,28 +198,46 @@ void Library::afficherAuteur()
 {
     for(int i=0;i<m_auteurs.size();i++)
     {
-        cout<<m_auteurs[i] << "/";
+        cout<<m_auteurs[i] << " ";
     }
     cout << endl;
 }
 
 
-void Library::emprunterLivre(int idLivre,int idLecteur)
+void Library::emprunterLivre()
 {
-    if(m_livres[idLivre].estEmprunter())
+    string Livre;
+    string Lecteur;
+    int idLivre;
+    int idLecteur;
+    cout << "Saisir l'id du livre a emprunter" << endl;
+    getline(cin, Livre);
+    idLivre= stoi(Livre);
+    cout << "Saisir l'id du lecteur qui emprunte" << endl;
+    getline(cin, Lecteur);
+    idLecteur= stoi(Lecteur);
+    cout << "ui";
+
+    /*if(m_livres[idLivre].estEmprunter()) //marche pas
     {
         cout << "Le livre est déja emprunte par quelqu'un d'autre" << endl;
     }
     else
-    {
-        m_livres[idLivre].emprunter(idLecteur);
-        cout << "Le livre " <</* m_livres[idLivre].afficherLivre() */ "a bien été emprunter par " << m_lecteurs[idLecteur] << endl;
-    }
+    {*/
+        //m_livres[idLivre].emprunter(idLecteur); //marche pas non plus
+        cout << "Le livre " <</* m_livres[idLivre].afficherLivre() */ "a bien été emprunter par ";//<< m_lecteurs[idLecteur] << endl;
+    //}
 }
 
 
-/*void Library::rendreLivre(int idLivre, int idLecteur)
+void Library::rendreLivre()
 {
+   /* int idLivre;
+    int idLecteur;
+    cout << "Saisir l'id du livre a restituer" << endl;
+    cin >> idLivre;
+    cout << "Saisir l'id du lecteur qui restitue le livre" << endl;
+    cin >> idLecteur;
     if(m_livres[idLivre].getLecteur==idLecteur)
     {
         cout << "Le livre" << m_livres[idLivres].afficherLivre() << "emprunter par " << m_lecteurs[idLecteur] << " a bien ete restitue"() << endl;
@@ -210,8 +245,8 @@ void Library::emprunterLivre(int idLivre,int idLecteur)
     else
     {
         cout << "Vous n'etes pas la personne qui a emprunter le livre" << endl;
-    }
-}*/
+    }*/
+}
 
 
 
