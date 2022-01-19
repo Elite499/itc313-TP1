@@ -4,6 +4,7 @@
 #include "lecteur.h"
 #include "emprunt.h"
 #include "library.h"
+#include "date.h"
 using namespace std;
 
 int main()
