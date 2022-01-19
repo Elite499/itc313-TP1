@@ -11,7 +11,8 @@ public:
     Auteur(std::string nom, std::string prenom, int id);
     Auteur();
     void afficherAuteur();
-
+    friend std::ostream& operator<<(std::ostream& os, Auteur const& A);
+    friend bool operator==(Auteur const& a, Auteur const& b);
 protected:
     std::string m_nom;
     std::string m_prenom;
