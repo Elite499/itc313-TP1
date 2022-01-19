@@ -218,34 +218,38 @@ void Library::emprunterLivre()
     idLecteur= stoi(Lecteur);
     cout << "ui";
 
-    /*if(m_livres[idLivre].estEmprunter()) //marche pas
+    if(m_livres[idLivre].estEmprunter()) //marche pas
     {
         cout << "Le livre est déja emprunte par quelqu'un d'autre" << endl;
     }
     else
-    {*/
-        //m_livres[idLivre].emprunter(idLecteur); //marche pas non plus
-        cout << "Le livre " <</* m_livres[idLivre].afficherLivre() */ "a bien été emprunter par ";//<< m_lecteurs[idLecteur] << endl;
-    //}
+    {
+        m_livres[idLivre].emprunter(idLecteur); //marche pas non plus
+        cout << "Le livre ";
+        m_livres[idLivre].afficherTitre();
+        cout  << "a bien été emprunter par " << m_lecteurs[idLecteur] << endl;
+    }
 }
 
 
 void Library::rendreLivre()
 {
-   /* int idLivre;
+    int idLivre;
     int idLecteur;
     cout << "Saisir l'id du livre a restituer" << endl;
     cin >> idLivre;
     cout << "Saisir l'id du lecteur qui restitue le livre" << endl;
     cin >> idLecteur;
-    if(m_livres[idLivre].getLecteur==idLecteur)
+    if(m_livres[idLivre].getLecteur()==idLecteur)
     {
-        cout << "Le livre" << m_livres[idLivres].afficherLivre() << "emprunter par " << m_lecteurs[idLecteur] << " a bien ete restitue"() << endl;
+        cout << "Le livre";
+        m_livres[idLivre].afficherLivre();
+        cout << "emprunter par " << m_lecteurs[idLecteur] << " a bien ete restitue" << endl;
     }
     else
     {
         cout << "Vous n'etes pas la personne qui a emprunter le livre" << endl;
-    }*/
+    }
 }
 
 
