@@ -10,15 +10,19 @@ Emprunt::Emprunt(string isbn):m_isbn(isbn),m_status(false)
 
 
 
-bool Emprunt::emprunterLivre(string isbn)
+bool Emprunt::getStatus()
 {
-    if (m_status)
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
+    return m_status;
 }
 
+void Emprunt::emprunter(int idLecteur)
+{
+    m_status=true;
+    m_idLecteur=idLecteur;
+}
+
+ostream& operator<<(ostream& os, Emprunt const& E)
+{
+ os << "WIP";
+ return os;
+}

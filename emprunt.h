@@ -9,11 +9,14 @@ class Emprunt
 {
 public:
     Emprunt(std::string isbn);
-    bool emprunterLivre(std::string isbn);
+    Emprunt()=default;
+    bool getStatus();
+    void emprunter(int idLecteur);
+    friend std::ostream& operator<<(std::ostream& os,Emprunt const& E);
 
 protected:
     std::string m_isbn;
-    int m_id;
+    int m_idLecteur;
     bool m_status;
 };
 

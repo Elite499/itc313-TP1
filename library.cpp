@@ -1,25 +1,36 @@
 #include "library.h"
-
+#include "emprunt.h"
 using namespace std;
 
-/*Library::Library()
+/*vector<Livre> Library::getLivres()
 {
-
+    return m_livres;
 }
 */
+void Library::afficherLivres()
+{
+    //cout << m_livres.size()<< endl;
+    for (int i=0; i< m_livres.size(); i++)
+    {
+        m_livres[i].afficherTitre();
+    }
+}
+
+
+
 void Library::addLivre()
 {
     string titre;
-    //string objet;
     string nom;
     string prenom;
     int id;
+    string idd;
     string langue;
     string isbn;
 
-    cout << "Saisir le titre du livre" << endl;
+
+    /*cout << "Saisir le titre du livre" << endl;
     getline(cin,titre);
-    //objet=titre;
 
     cout << "Saisir le nom de l'auteur" << endl;
     getline(cin,nom);
@@ -28,36 +39,49 @@ void Library::addLivre()
     getline(cin,prenom);
 
     cout << "Saisir l'id de l'auteur" << endl;
-    cin >> id;
+    getline(cin,idd);
+    id = stoi(idd);
 
     cout << "Saisir la langue du livre" << endl;
-    cin >> langue;
+    getline(cin,langue);
 
     cout << "Saisir l'isbn du livre" << endl;
-    cin >> isbn;
+    getline(cin,isbn);
 
-/*    if (biblio.estPresent(isbn))
-    {
-        Emprunt ui(isbn);
-        Livre book(titre,nom,prenom,id,langue,isbn);   //Modifier book pour avoir un nom d'objet différent a chaque fois(l'objet ne dois pas avoir le
-        book.afficherLivre();                          //même nom qu'un paramètre
-    }
-    else
-        cout << "L'isbn saisit correspond déja à un livre présent dans la bibliotheque" << endl;
-*/
-        Emprunt ui(isbn);
-        Livre book(titre,nom,prenom,id,langue,isbn);   //Modifier book pour avoir un nom d'objet différent a chaque fois(l'objet ne dois pas avoir le
-        book.afficherLivre();                          //même nom qu'un paramètre
+
+    Livre a(titre,nom,prenom,id,langue,isbn);
+    Emprunt e(isbn);
+    */
+    Livre a("James M'bong","M'bong","Nicolas",001,"Francais","007");
+    //vector<Livre> livres=getLivres();
+    livreEstPresent(a);
 }
 
 
-bool Library::estPresent(string isbn)
+
+bool Library::livreEstPresent(Livre const& x)
 {
-    for(int i=0 ; i < m_isbns.size() ; i++)
+    for(int i=0 ; i < m_livres.size() ; i++)
     {
-        return (m_isbns[i]==isbn);
+        if (m_livres[i]==x)
+        {
+            cout << "Le livre est deja present dans la bibliotheque" << endl;
+            cout << endl;
+            return true;
+        }
     }
+            m_livres.push_back(x);
+            cout << "Le livre a bien ete ajoute a la bibliotheque" << endl;
+            cout << endl;
+            return false;
+
+
 }
+
+
+
+
+
 
 
 void Library::addLecteur()
@@ -66,6 +90,7 @@ void Library::addLecteur()
     string prenom;
     int idLecteur;
 
+/*
     cout << "Saisir le nom du lecteur" << endl;
     getline(cin,nom);
 
@@ -76,11 +101,117 @@ void Library::addLecteur()
     cin >> idLecteur;
 
     Lecteur personne(string nom,string prenom,int idLecteur);
+    */Lecteur personne("M'BONG","Nicolas",001);
+    lecteurEstPresent(personne);
+
 }
 
 
-/*void Library::emprunterLivre()
+bool Library::lecteurEstPresent(Lecteur const& x)
 {
+    for(int i=0 ; i < m_lecteurs.size() ; i++)
+    {
+        if (m_lecteurs[i]==x)
+        {
+            cout << "Cette personne est deja enregistre" << endl;
+            cout << endl;
+            return true;
+        }
+    }
+            m_lecteurs.push_back(x);
+            cout << "Le nouveau lecteur a bien ete enregistre" << endl;
+            cout << endl;
+            return false;
+}
+
+
+
+void Library::afficherLecteurs()
+{
+    for(int i=0;i<m_lecteurs.size();i++)
+    {
+        cout<<m_lecteurs[i] << "/";
+    }
+    cout << endl;
+}
+
+void Library::addAuteur()
+{
+    string nom;
+    string prenom;
+    int id;
+
+/*
+    cout << "Saisir le nom de l'auteur" << endl;
+    getline(cin,nom);
+
+    cout << "Saisir le prenom de l'auteur" << endl;
+    getline(cin,prenom);
+
+    cout << "Saisir l'id de l'auteur" << endl;
+    cin >> id;
+
+    Auteur auteur(string nom,string prenom,int id);
+    */Auteur auteur("M'BONG","Nicolas",001);
+    auteurEstPresent(auteur);
 
 }
-*/
+
+
+bool Library::auteurEstPresent(Auteur const& x)
+{
+    for(int i=0 ; i < m_auteurs.size() ; i++)
+    {
+        if (m_auteurs[i]==x)
+        {
+            cout << "Cette auteur est deja enregistre" << endl;
+            cout << endl;
+            return true;
+        }
+    }
+            m_auteurs.push_back(x);
+            cout << "Le nouvelle auteur a bien ete enregistre" << endl;
+            cout << endl;
+            return false;
+}
+
+
+
+void Library::afficherAuteur()
+{
+    for(int i=0;i<m_auteurs.size();i++)
+    {
+        cout<<m_auteurs[i] << "/";
+    }
+    cout << endl;
+}
+
+
+void Library::emprunterLivre(int idLivre,int idLecteur)
+{
+    if(m_livres[idLivre].estEmprunter())
+    {
+        cout << "Le livre est déja emprunte par quelqu'un d'autre" << endl;
+    }
+    else
+    {
+        m_livres[idLivre].emprunter(idLecteur);
+        cout << "Le livre " <</* m_livres[idLivre].afficherLivre() */ "a bien été emprunter par " << m_lecteurs[idLecteur] << endl;
+    }
+}
+
+
+/*void Library::rendreLivre(int idLivre, int idLecteur)
+{
+    if(m_livres[idLivre].getLecteur==idLecteur)
+    {
+        cout << "Le livre" << m_livres[idLivres].afficherLivre() << "emprunter par " << m_lecteurs[idLecteur] << " a bien ete restitue"() << endl;
+    }
+    else
+    {
+        cout << "Vous n'etes pas la personne qui a emprunter le livre" << endl;
+    }
+}*/
+
+
+
