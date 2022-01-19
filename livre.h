@@ -17,6 +17,8 @@ public:
     bool estEgal(Livre const& b) const;
     bool estEmprunter();
     void emprunter(int idLecteur);
+    int getLecteur();
+    friend std::ostream& operator<<(std::ostream& os,Livre const& L);
 
 protected:
     std::string m_titre;
@@ -29,7 +31,7 @@ protected:
 };
 
 bool operator==(Livre const& a, Livre const& b);
-
+std::ostream& operator<<(std::ostream& os,Livre const& L);
 
 
 

@@ -38,11 +38,23 @@ bool operator==(Livre const& a, Livre const& b)
     return a.estEgal(b);
 }
 
+ostream& operator<<(ostream& os, Livre const& L)
+{
+    os << "Titre:" << L.m_titre << endl << "Auteur:" << L.m_auteur <<endl << "Langue:" << L.m_langue << endl <<"Genre:" << L.m_genre << endl << "Isbn:" << L.m_isbn
+     << endl; //<< "emprunt:"
+     return os;
+}
+
+
 bool Livre::estEmprunter()
 {
     return m_emprunt.getStatus();
 }
 
+int Livre::getLecteur()
+{
+    return m_emprunt.getIdLecteur();
+}
 
 void Livre::emprunter(int idLecteur)
 {
