@@ -9,11 +9,6 @@ Livre::Livre(string titre, string nom, string prenom,int id, string langue, stri
 
 }
 
-/*Livre::Livre()
-{
-
-}*/
-
 
 void Livre::afficherLivre()
 {
@@ -22,21 +17,55 @@ void Livre::afficherLivre()
     cout << endl << "Langue:" << m_langue <<endl << "ISBN:" << m_isbn << endl;
 }
 
+
 void Livre::afficherTitre()
 {
     cout << m_titre << " ";
     cout << endl;
 }
 
-bool Livre::estEgal(Livre const& b)const
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+bool Livre::estEmprunter()
 {
-    return (m_titre==b.m_titre /*&& m_auteur==b.m_auteur*/ && m_langue==b.m_langue && m_isbn==b.m_isbn);
+    return m_emprunt.getStatus();
 }
 
-bool operator==(Livre const& a, Livre const& b)
+
+int Livre::getLecteur()
 {
-    return a.estEgal(b);
+    return m_emprunt.getIdLecteur();
 }
+
+
+string Livre::getNomAuteur()
+{
+    return m_auteur.getNom();
+}
+
+
+string Livre::getPrenomAuteur()
+{
+    return m_auteur.getPrenom();
+}
+
+
+void Livre::emprunter(int idLecteur)
+{
+    m_emprunt.emprunter(idLecteur);
+}
+
+
+void Livre::rendreLivre()
+{
+    m_emprunt.rendre();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 ostream& operator<<(ostream& os, Livre const& L)
 {
@@ -46,22 +75,14 @@ ostream& operator<<(ostream& os, Livre const& L)
 }
 
 
-bool Livre::estEmprunter()
+bool Livre::estEgal(Livre const& b)const
 {
-    return m_emprunt.getStatus();
+    return (m_titre==b.m_titre && m_auteur==b.m_auteur && m_langue==b.m_langue && m_isbn==b.m_isbn);
 }
 
-int Livre::getLecteur()
+
+bool operator==(Livre const& a, Livre const& b)
 {
-    return m_emprunt.getIdLecteur();
+    return a.estEgal(b);
 }
 
-void Livre::emprunter(int idLecteur)
-{
-    m_emprunt.emprunter(idLecteur);
-}
-
-void Livre::rendreLivre()
-{
-    m_emprunt.rendre();
-}

@@ -18,15 +18,19 @@ public:
     void addLivre(std::string titre, std::string nom, std::string prenom, int id, std::string langue, std::string isbn);
     void afficherLivres();
     bool livreEstPresent(Livre const& x);
-    std::vector<Livre> getLivres();
+    //std::vector<Livre> getLivres();
+
     void addLecteur();
     void addLecteur(std::string nom, std::string prenom, int idLecteur);
     bool lecteurEstPresent(Lecteur const& x);
     void afficherLecteurs();
+
     void addAuteur();
     void addAuteur(std::string nom, std::string prenom, int id);
     bool auteurEstPresent(Auteur const& x);
     void afficherAuteur();
+    void afficherLivresAuteur();
+
     void emprunterLivre();
     void rendreLivre();
 

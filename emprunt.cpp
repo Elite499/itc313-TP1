@@ -2,12 +2,10 @@
 using namespace std;
 
 
-Emprunt::Emprunt(string isbn):m_isbn(isbn),m_status(false)
+Emprunt::Emprunt(string isbn):m_isbn(isbn),m_idLecteur(0),m_status(false)
 {
 
 }
-
-
 
 
 bool Emprunt::getStatus()

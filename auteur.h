@@ -8,9 +8,11 @@
 class Auteur
 {
 public:
-    Auteur(std::string nom, std::string prenom, int id);
     Auteur();
+    Auteur(std::string nom, std::string prenom, int id);
     void afficherAuteur();
+    std::string getNom();
+    std::string getPrenom();
     friend std::ostream& operator<<(std::ostream& os, Auteur const& A);
     friend bool operator==(Auteur const& a, Auteur const& b);
 protected:

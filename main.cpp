@@ -84,6 +84,7 @@ int main()
             cout << "Choisissez une action: " << endl;
             cout << "1: Consulter la liste des livres         2: Consulter la liste des lecteurs" << endl;
             cout << "3: Consulter la liste des auteurs        4: Retour au menu principal" << endl;
+            cout << "5: tkt" << endl;
             getline(cin,x);
             int z=stoi(x);
             switch(z)
@@ -98,6 +99,9 @@ int main()
                 biblio.afficherAuteur();
                 break;
             case 4:
+                break;
+            case 5:
+                biblio.afficherLivresAuteur();
                 break;
             }
             break;
