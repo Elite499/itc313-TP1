@@ -1,4 +1,3 @@
-
 #include "date.h"
 #include <assert.h>
 #include <string>
@@ -132,4 +131,3 @@ std::string toString(Date d) {
     //return datetest ;
     return ToString(d.day()) + "/" + ToString(d.month()) +"/" + ToString(d.years()) ;
 }
-

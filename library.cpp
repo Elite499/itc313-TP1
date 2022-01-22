@@ -12,6 +12,7 @@ void Library::afficherLivres()
     //cout << m_livres.size()<< endl;
     for (int i=0; i< m_livres.size(); i++)
     {
+        cout << i+1 << ": ";
         m_livres[i].afficherTitre();
     }
 }
@@ -234,17 +235,23 @@ void Library::emprunterLivre()
 
 void Library::rendreLivre()
 {
+    string Livre;
+    string Lecteur;
     int idLivre;
     int idLecteur;
     cout << "Saisir l'id du livre a restituer" << endl;
-    cin >> idLivre;
+    getline(cin,Livre);
+    idLivre=stoi(Livre);
     cout << "Saisir l'id du lecteur qui restitue le livre" << endl;
-    cin >> idLecteur;
+    getline(cin,Lecteur);
+    idLecteur=stoi(Lecteur);
     if(m_livres[idLivre].getLecteur()==idLecteur)
     {
         cout << "Le livre";
         m_livres[idLivre].afficherLivre();
         cout << "emprunter par " << m_lecteurs[idLecteur] << " a bien ete restitue" << endl;
+        m_livres[idLivre].rendreLivre();
+
     }
     else
     {

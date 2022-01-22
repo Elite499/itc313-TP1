@@ -60,3 +60,8 @@ void Livre::emprunter(int idLecteur)
 {
     m_emprunt.emprunter(idLecteur);
 }
+
+void Livre::rendreLivre()
+{
+    m_emprunt.rendre();
+}

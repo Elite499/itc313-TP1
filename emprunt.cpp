@@ -28,6 +28,12 @@ void Emprunt::emprunter(int idLecteur)
     m_idLecteur=idLecteur;
 }
 
+void Emprunt::rendre()
+{
+    m_status=false;
+    m_idLecteur=0;
+}
+
 
 ostream& operator<<(ostream& os, Emprunt const& E)
 {
