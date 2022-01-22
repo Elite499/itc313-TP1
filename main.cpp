@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     Library biblio;
-    biblio.addLivre("Comment traumatiser votre enfant 7 methode infaillibles pour en faire unetre inadapte mais genial","BILIK","Jen",001,"Francais","001");
+    biblio.addLivre("Comment traumatiser votre enfant 7 methode infaillibles pour en faire un etre inadapte mais genial","BILIK","Jen",001,"Francais","001");
     biblio.addLivre("Faut pas prendre les cons pour des gens","REUZE","Emmanuel",002,"Francais","002");
     biblio.addLivre("Les miserables","HUGO","Victor",003,"Francais","003");
     biblio.addLivre("Le dernier jouer du condamne","HUGO","Victor",003,"Francais","004");

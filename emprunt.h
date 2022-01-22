@@ -12,6 +12,7 @@ public:
     bool getStatus();
     int getIdLecteur();
     void emprunter(int idLecteur);
+    void rendre();
     friend std::ostream& operator<<(std::ostream& os,Emprunt const& E);
 
 protected:
