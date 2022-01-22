@@ -24,6 +24,7 @@ public:
     void addLecteur(std::string nom, std::string prenom, int idLecteur);
     bool lecteurEstPresent(Lecteur const& x);
     void afficherLecteurs();
+    void afficherLivresLecteur();
 
     void addAuteur();
     void addAuteur(std::string nom, std::string prenom, int id);
@@ -33,6 +34,8 @@ public:
 
     void emprunterLivre();
     void rendreLivre();
+    void pourcentageEmprunt();
+    void classementLecteurs();
 
 protected:
     std::vector<Livre> m_livres;

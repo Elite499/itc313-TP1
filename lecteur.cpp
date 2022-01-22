@@ -8,18 +8,22 @@ Lecteur::Lecteur(string nom,string prenom,int idLecteur):m_nom(nom),m_prenom(pre
 }
 
 
-void Lecteur::addIsbn(string a)
+void Lecteur::addIdLivre(int a)
 {
-    m_isbnsLecteur.push_back(a);
+    m_idLivres.push_back(a);
 }
 
 
-void Lecteur::afficherIsbns()
+/*void Lecteur::removeLivre(int a)
 {
-    for (int i=0; i<m_isbnsLecteur.size()  ;i++)
-    {
-        cout << m_isbnsLecteur[i] <<endl;
-    }
+
+}
+*/
+
+vector<int> Lecteur::afficherIdLivres()
+{
+        return m_idLivres;
+
 }
 
 

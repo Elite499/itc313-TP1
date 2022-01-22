@@ -18,9 +18,11 @@ public:
     bool estEmprunter();
     void emprunter(int idLecteur);
     void rendreLivre();
+
     int getLecteur();
     std::string getNomAuteur();
     std::string getPrenomAuteur();
+
     friend std::ostream& operator<<(std::ostream& os,Livre const& L);
     bool estEgal(Livre const& b) const;
 

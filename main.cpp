@@ -101,7 +101,7 @@ int main()
             case 4:
                 break;
             case 5:
-                biblio.afficherLivresAuteur();
+                biblio.afficherLivresLecteur();
                 break;
             }
             break;
