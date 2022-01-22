@@ -11,8 +11,9 @@ class Lecteur
 public:
     Lecteur()=default;
     Lecteur(std::string nom,std::string prenom,int idLecteur);
-    void addIsbn(std::string a);
-    void afficherIsbns();
+    void addIdLivre(int a);
+    //void removeLivre(int a);
+    std::vector<int> afficherIdLivres();
     friend bool operator==(Lecteur const& a, Lecteur const& b);
     friend std::ostream& operator<<(std::ostream& os,  Lecteur const& L);
 
@@ -20,7 +21,7 @@ protected:
     std::string m_nom;
     std::string m_prenom;
     int m_idLecteur;
-    std::vector<std::string> m_isbnsLecteur;
+    std::vector<int> m_idLivres;
 };
 
 

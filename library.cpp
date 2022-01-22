@@ -76,6 +76,7 @@ bool Library::livreEstPresent(Livre const& x)
 
 
 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -135,6 +136,24 @@ void Library::afficherLecteurs()
         cout<<m_lecteurs[i] << " ";
     }
     cout << endl;
+}
+
+
+void Library::afficherLivresLecteur()
+{
+    string lecteur;
+    int idLecteur;
+    cout << "Saisir l'id du lecteur" << endl;
+    getline(cin,lecteur);
+    idLecteur=stoi(lecteur);
+    vector<int> idLivres = m_lecteurs[idLecteur-1].afficherIdLivres();
+    cout << "Les livres empruntes par " << m_lecteurs[idLecteur-1] << " sont:" << endl;
+    for(int i=0;i< idLivres.size();i++)
+    {
+        cout << i+1 << ": ";
+        m_livres[idLivres[i]-1].afficherTitre();
+        cout << endl;
+    }
 }
 
 
@@ -239,6 +258,7 @@ void Library::emprunterLivre()
     else
     {
         m_livres[idLivre-1].emprunter(idLecteur);
+        m_lecteurs[idLecteur-1].addIdLivre(idLivre);
         cout << "Le livre ";
         m_livres[idLivre-1].afficherTitre();
         cout  << "a bien ete emprunter par " << m_lecteurs[idLecteur-1] << endl;
@@ -273,4 +293,31 @@ void Library::rendreLivre()
 }
 
 
+void Library::pourcentageEmprunt()
+{
+    int j=0;
+    int h=0;
+    cout << "Les livres empruntés sont: " << endl;
+    for(int i=0;i<m_livres.size();i++)
+    {
+        if(m_livres[i].estEmprunter())
+        {
+            cout << i+1 << ": ";
+            m_livres[i].afficherTitre();
+            cout << endl;
+            j+=1;
+        }
+        h+=1;
+    }
+    cout << j << "livres sont emprunte, cela represente " << (j/h)*100 << "% des livres" << endl;
+}
 
+
+void Library::classementLecteurs()
+{
+    int n1,n2,n3;
+    for(int i=0;i<m_lecteurs.size();i++)
+    {
+
+    }
+}
