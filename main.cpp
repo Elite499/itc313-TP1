@@ -30,17 +30,23 @@ int main()
     biblio.addAuteur("NIETZSHE","Friedrich",004);
     biblio.addAuteur("FLEMING","Ian",005);
 
+    biblio.emprunt(4,1);
+    biblio.emprunt(1,2);
+    biblio.emprunt(2,2);
+    biblio.emprunt(7,2);
+    biblio.emprunt(8,3);
+    biblio.emprunt(3,3);
 
     string x;
     int y;
 
     do
     {
-        cout << "Bienvenue dans le menu principal" << endl;
+        cout << endl << "Bienvenue dans le menu principal" << endl;
         cout << endl;
         cout << "Choisissez une action: " << endl;
-        cout << "1: Ajouter un element     2: Emprunter un livre" << endl;
-        cout << "3: Rendre un livre        4: Parcourir la biblio" << endl;
+        cout << "1: Parcourir la biblio     2: Section emprunt" << endl;
+        cout << "3: Ajouter un element      4: Classement des lecteurs " << endl;
         cout << "5: Quitter la biblio" << endl;
         getline(cin,x);
 
@@ -52,7 +58,65 @@ int main()
         {
         case 1:
             {
-            cout << "Choisissez une action: " << endl;
+            cout << endl <<"Choisissez une action: " << endl;
+            cout << "1: Consulter la liste des livres         2: Consulter la liste des lecteurs" << endl;
+            cout << "3: Consulter la liste des auteurs        4: Trouver tout les livres d'un auteur" << endl;
+            cout << "5: Retour au menu principal" << endl;
+            getline(cin,x);
+            int z=stoi(x);
+            switch(z)
+            {
+            case 1:
+                biblio.afficherLivres();
+                break;
+            case 2:
+                biblio.afficherLecteurs();
+                break;
+            case 3:
+                biblio.afficherAuteur();
+                break;
+            case 4:
+                biblio.afficherLivresAuteur();
+                break;
+            case 5:
+                break;
+            }
+            break;
+            }
+
+
+        case 2:
+            {
+            cout << endl <<"Choisissez une action: " << endl;
+            cout << "1: Emprunter un livre                             2: Rendre un livre" << endl;
+            cout << "3: Consulter la liste des livres empruntes        4: Consultez la liste des livres que vous avez empruntes" << endl;
+            cout << "5: Retour au menu principal" << endl;
+            getline(cin,x);
+            int z=stoi(x);
+            switch(z)
+            {
+            case 1:
+                biblio.emprunterLivre();
+                break;
+            case 2:
+                biblio.rendreLivre();
+                break;
+            case 3:
+                biblio.pourcentageEmprunt();
+                break;
+            case 4:
+                biblio.afficherLivresLecteur();
+                break;
+            case 5:
+                break;
+            }
+            break;
+            }
+
+
+        case 3:
+            {
+            cout << endl <<"Choisissez une action: " << endl;
             cout << "1: Ajouter un livre         2: Ajouter un lecteur" << endl;
             cout << "3: Ajouter un auteur        4: Retour au menu principal" << endl;
             getline(cin,x);
@@ -73,51 +137,18 @@ int main()
             }
             break;
             }
-        case 2:
-            biblio.emprunterLivre();
-            break;
-        case 3:
-            biblio.rendreLivre();
-            break;
+
+
         case 4:
-            {
-            cout << "Choisissez une action: " << endl;
-            cout << "1: Consulter la liste des livres         2: Consulter la liste des lecteurs" << endl;
-            cout << "3: Consulter la liste des auteurs        4: Retour au menu principal" << endl;
-            cout << "5: tkt" << endl;
-            getline(cin,x);
-            int z=stoi(x);
-            switch(z)
-            {
-            case 1:
-                biblio.afficherLivres();
-                break;
-            case 2:
-                biblio.afficherLecteurs();
-                break;
-            case 3:
-                biblio.afficherAuteur();
-                break;
-            case 4:
-                break;
-            case 5:
-                biblio.afficherLivresLecteur();
-                break;
-            }
+            biblio.classementLecteurs();
             break;
-            }
+
         case 5:
             cout << "Merci de votre visite" << endl;
             y=-1;
             break;
 
         }
-
-
-
-
-
-
 
 
     }

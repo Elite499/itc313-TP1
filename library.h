@@ -32,6 +32,7 @@ public:
     void afficherAuteur();
     void afficherLivresAuteur();
 
+    void emprunt(int livre,int lecteur);
     void emprunterLivre();
     void rendreLivre();
     void pourcentageEmprunt();
@@ -42,7 +43,7 @@ protected:
     std::vector<Lecteur> m_lecteurs;
     std::vector<Auteur> m_auteurs;
     std::vector<Emprunt> m_emprunts;
-    std::vector<std::string> m_isbns;
+    //std::vector<std::string> m_isbns;
 
 };
 

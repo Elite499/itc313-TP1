@@ -42,14 +42,4 @@ std::ostream& operator<<(std::ostream& os,Livre const& L);
 
 
 
-
-
-
-
-
-
-
-
-
-
 #endif // LIVRE_H_INCLUDED

@@ -14,16 +14,28 @@ void Lecteur::addIdLivre(int a)
 }
 
 
-/*void Lecteur::removeLivre(int a)
+void Lecteur::removeLivre(int a)
 {
-
+    for(int i=0;i<m_idLivres.size();i++)
+    {
+        if(m_idLivres[i]==a)
+        {
+            m_idLivres.erase(m_idLivres.begin()+i);
+        }
+    }
 }
-*/
+
 
 vector<int> Lecteur::afficherIdLivres()
 {
         return m_idLivres;
 
+}
+
+
+int Lecteur::getVectorSize()
+{
+    return m_idLivres.size();
 }
 
 
