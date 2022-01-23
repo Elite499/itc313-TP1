@@ -12,8 +12,9 @@ public:
     Lecteur()=default;
     Lecteur(std::string nom,std::string prenom,int idLecteur);
     void addIdLivre(int a);
-    //void removeLivre(int a);
+    void removeLivre(int a);
     std::vector<int> afficherIdLivres();
+    int getVectorSize();
     friend bool operator==(Lecteur const& a, Lecteur const& b);
     friend std::ostream& operator<<(std::ostream& os,  Lecteur const& L);
 

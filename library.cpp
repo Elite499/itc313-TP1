@@ -238,6 +238,13 @@ void Library::afficherLivresAuteur()
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+void Library::emprunt(int livre,int lecteur)
+{
+    m_livres[livre-1].emprunter(lecteur);
+    m_lecteurs[lecteur-1].addIdLivre(livre);
+}
+
+
 void Library::emprunterLivre()
 {
     string Livre;
@@ -284,6 +291,7 @@ void Library::rendreLivre()
         m_livres[idLivre-1].afficherLivre();
         cout << "emprunter par " << m_lecteurs[idLecteur-1] << " a bien ete restitue" << endl;
         m_livres[idLivre-1].rendreLivre();
+        m_lecteurs[idLecteur-1].removeLivre(idLivre);
 
     }
     else
@@ -295,8 +303,8 @@ void Library::rendreLivre()
 
 void Library::pourcentageEmprunt()
 {
-    int j=0;
-    int h=0;
+    int j;
+    int k;
     cout << "Les livres empruntés sont: " << endl;
     for(int i=0;i<m_livres.size();i++)
     {
@@ -307,17 +315,50 @@ void Library::pourcentageEmprunt()
             cout << endl;
             j+=1;
         }
-        h+=1;
     }
-    cout << j << "livres sont emprunte, cela represente " << (j/h)*100 << "% des livres" << endl;
+    cout << j << " livres sont empruntes, cela represente " << (j*100)/m_livres.size() << "% des livres" << endl;
 }
 
 
 void Library::classementLecteurs()
 {
-    int n1,n2,n3;
+    int j1;
+    int j2;
+    int j3;
+    int n1(0),n2(0),n3(0);
     for(int i=0;i<m_lecteurs.size();i++)
     {
-
+        if(m_lecteurs[i].getVectorSize()>n1)
+        {
+            n1=m_lecteurs[i].getVectorSize();
+            j1=i;
+        }
     }
+    vector<Lecteur> m_lecteursCopie=m_lecteurs;
+    m_lecteursCopie.erase(m_lecteursCopie.begin()+j1);
+
+    for(int i=0;i<m_lecteursCopie.size();i++)
+    {
+        if(m_lecteursCopie[i].getVectorSize()>n2)
+        {
+            n2=m_lecteursCopie[i].getVectorSize();
+            j2=i;
+        }
+    }
+    vector<Lecteur> m_lecteursCopie2=m_lecteursCopie;
+    m_lecteursCopie2.erase(m_lecteursCopie2.begin()+j2);
+
+    for(int i=0;i<m_lecteursCopie2.size();i++)
+    {
+        if(m_lecteursCopie2[i].getVectorSize()>n3)
+        {
+            n3=m_lecteursCopie2[i].getVectorSize();
+            j3=i;
+        }
+    }
+    cout << "****** Classement des lecteurs ******" << endl << endl;
+    cout << "1ere place: " << m_lecteurs[j1] << "avec " << n1 << " livres empruntes" << endl;
+    cout << "2eme place: " << m_lecteursCopie[j2] << "avec " << n2 << " livres empruntes" << endl;
+    cout << "3eme place: " << m_lecteursCopie2[j3] << "avec " << n3 << " livres empruntes" << endl;
+    cout << endl << "**********************************" << endl;
 }
